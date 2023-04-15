@@ -1,5 +1,12 @@
-import requests
+from peewee import *
 
-response = requests.get('https://httpbin.org/ip')
+db = PostgresqlDatabase('elements', user='postgres', password='',host='localhost', port=5432)
 
-print('Your IP is {0}'.format(response.json()['origin']))
+db.connect()
+
+class BaseModel(Model):
+    class Meta:
+        database = db
+class Elements(BaseModel):
+    name = CharField()
+    abbreviation = CharField()
