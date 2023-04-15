@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 requests = "*"
+peewee = "*"
+psycopg2-binary = "*"
+autopep8 = "*"
 
 [dev-packages]
 
