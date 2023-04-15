@@ -1,4 +1,5 @@
 from peewee import *
+import IPython
 
 db = PostgresqlDatabase('elements', user='postgres', password='',host='localhost', port=5432)
 
@@ -12,6 +13,7 @@ class Elements(BaseModel):
     abbreviation = CharField()
 
 def flashcards():
+    db.drop_tables([Elements])
     db.create_tables([Elements])
     card1 = Elements(name = 'Hydrogen', abbreviation = 'H')
     card1.save()
@@ -353,5 +355,16 @@ def flashcards():
     card113.save()
 
 
+def menu():
+    print("Would you like to review the elements or create a new card?")
+    answer = input('Type: review or create')
+    if answer == 'review':
+        review()
+    elif answer == 'create':
+        create()
+    else: 
+        print('Invalid input')
+        menu()
 
 
+IPython.embed()
