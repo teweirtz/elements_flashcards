@@ -365,9 +365,9 @@ def menu():
         menu()
 
 def create():
-    name = input("Add your element: \n")
-    abbreviation = input("Enter the abbreviation: \n")
-    new = Elements(name, abbreviation)
+    n = input("Add your element: \n")
+    a = input("Enter the abbreviation: \n")
+    new = Elements(name=n, abbreviation=a)
     new.save()
     print(f"Here is your new element: {new.name} and abbreviation:{new.abbreviation}")
     menu()
